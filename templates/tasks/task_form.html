@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - TaskFlow Pro{% endblock %}
+
+{% block content %}
+<div data-aos="fade-up">
+    <h1 class="page-title">
+        <i class="bi bi-{% if form.instance.pk %}pencil-square{% else %}plus-circle{% endif %}"></i> 
+        {{ title }}
+    </h1>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="mb-4" data-aos="fade-right">
+            <a href="{% url 'task_list' %}" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-left-circle me-1"></i> Back to Tasks
+            </a>
+        </div>
+        
+        <div class="card" data-aos="zoom-in">
+            <div class="card-body" style="padding: 3rem;">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-4">
+                        <label for="{{ form.title.id_for_label }}" class="form-label">
+                            <i class="bi bi-pencil-fill me-2"></i> Task Title *
+                        </label>
+                        {{ form.title }}
+                        {% if form.title.errors %}
+                            <div class="text-danger small mt-2" style="font-weight: 600;">{{ form.title.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="{{ form.description.id_for_label }}" class="form-label">
+                            <i class="bi bi-card-text me-2"></i> Description
+                        </label>
+                        {{ form.description }}
+                        {% if form.description.errors %}
+                            <div class="text-danger small mt-2" style="font-weight: 600;">{{ form.description.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label for="{{ form.priority.id_for_label }}" class="form-label">
+                                <i class="bi bi-flag-fill me-2"></i> Priority Level *
+                            </label>
+                            {{ form.priority }}
+                            {% if form.priority.errors %}
+                                <div class="text-danger small mt-2" style="font-weight: 600;">{{ form.priority.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <label for="{{ form.status.id_for_label }}" class="form-label">
+                                <i class="bi bi-gear-fill me-2"></i> Current Status *
+                            </label>
+                            {{ form.status }}
+                            {% if form.status.errors %}
+                                <div class="text-danger small mt-2" style="font-weight: 600;">{{ form.status.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="{{ form.due_date.id_for_label }}" class="form-label">
+                            <i class="bi bi-calendar-event-fill me-2"></i> Due Date & Time
+                        </label>
+                        {{ form.due_date }}
+                        {% if form.due_date.errors %}
+                            <div class="text-danger small mt-2" style="font-weight: 600;">{{ form.due_date.errors }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="d-flex gap-3 mt-5">
+                        <button type="submit" class="btn btn-primary btn-lg flex-fill" style="padding: 1rem 2rem; font-size: 1.1rem; font-weight: 700;">
+                            <i class="bi bi-check-circle-fill me-2"></i> {{ title }}
+                        </button>
+                        <a href="{% url 'task_list' %}" class="btn btn-outline-primary btn-lg" style="padding: 1rem 2rem;">
+                            <i class="bi bi-x-circle me-2"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

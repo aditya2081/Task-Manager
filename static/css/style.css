@@ -1,0 +1,242 @@
+/* TaskFlow Pro - Premium Clean Styles */
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ripple Effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(102, 126, 234, 0.3);
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: ripple-animation 0.6s ease-out;
+}
+
+@keyframes ripple-animation {
+    to {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(203, 213, 225, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+}
+
+/* Selection Color */
+::selection {
+    background: rgba(139, 92, 246, 0.2);
+    color: #1e293b;
+}
+
+/* Premium Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.01);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+    }
+}
+
+/* Premium Stat Cards */
+.stat-card {
+    animation: float 6s ease-in-out infinite;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card:nth-child(1) { animation-delay: 0s; }
+.stat-card:nth-child(2) { animation-delay: 0.5s; }
+.stat-card:nth-child(3) { animation-delay: 1s; }
+.stat-card:nth-child(4) { animation-delay: 1.5s; }
+
+.stat-card:hover {
+    transform: translateY(-15px) scale(1.05) !important;
+    animation-play-state: paused;
+}
+
+/* Task Cards Premium Enhancement */
+.task-card {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.task-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.7s ease;
+}
+
+.task-card:hover::after {
+    left: 150%;
+}
+
+.task-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 25px 70px rgba(0, 0, 0, 0.2),
+        0 10px 25px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+    border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Premium Form Controls */
+.form-control, .form-select {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(102, 126, 234, 0.15);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 
+        0 0 0 0.25rem rgba(102, 126, 234, 0.2),
+        0 6px 16px rgba(102, 126, 234, 0.25);
+    transform: translateY(-2px) scale(1.01);
+}
+
+::-moz-selection {
+    background: rgba(102, 126, 234, 0.2);
+    color: #1a1d2e;
+}
+}
+
+/* Card Hover Effects */
+.card-hover-lift {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-lift:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 35px 90px rgba(0, 0, 0, 0.25);
+}
+
+/* Gradient Animation */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.gradient-animate {
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.float-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Glow Effect */
+.glow-on-hover {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.glow-on-hover:hover {
+    box-shadow: 
+        0 0 20px rgba(99, 102, 241, 0.4),
+        0 0 40px rgba(99, 102, 241, 0.3),
+        0 0 60px rgba(99, 102, 241, 0.2);
+}
+
+/* Shake Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake-on-error {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Utility Classes */
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shadow-premium {
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+.border-gradient {
+    border: 2px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
